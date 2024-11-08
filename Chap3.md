@@ -4,48 +4,40 @@
 
 [Back to Previous Chapter](/Chap2.md)
 
-
 ## 環境構築
+
 フロントエンドの環境構築を行っていきます。
 
-https://docs.volta.sh/guide/getting-started
+Node.jsのインストールには[mise](https://mise.jdx.dev/getting-started.html)を利用します。
 
 以下のコマンドでインストールが完了します。
 
-```
-curl https://get.volta.sh | bash
-```
-
-以下のコマンドを打って
-
-```
-volta --version
+```bash
+curl https://mise.run | sh
 ```
 
-1.1.1
+以下のコマンドを打ってバージョン情報が表示されたらOKです。
 
-のような文字列が表示されればOKです！
+```bash
+mise --version
+
+# => 2024.11.4 macos-arm64 (2024-11-06)
+```
 
 voltaを使用して、nodeをインストールしておきましょう。
 今回は16系のnodeを使用します。
 
-```
-volta install node@16
+```bash
+mise install node@22
 ```
 
-以下のコマンドを実行して
+以下のコマンドを打ってバージョン情報が表示されたらOKです。
 
-```
+```bash
 node -v
+
+# => v22.4.0
 ```
-
-v16.20.0
-
-のような文字列が表示されればOKです！
-
-
-
-
 
 ## TypeScript
 
@@ -53,6 +45,7 @@ TypeScript(TS)とは、JavaScriptに型がついた言語です。
 普段の開発ではTypeScriptを使用することが多いので、マスターしましょう！
 
 ### TypeScriptチュートリアル①
+
 TypeScriptの基本的な文法を以下の資料を読んで理解しましょう。
 
 [読んで学ぶTypeScript](https://typescriptbook.jp/reference)
@@ -82,7 +75,6 @@ TypeScriptの基本的な文法を以下の資料を読んで理解しましょ�
 
 ここでは改めて、[こちらの記事](https://typescript-jp.gitbook.io/deep-dive/type-system)で紹介されている型システムを把握できているか、確認してみましょう。
 
-
 - [ ] [TypeScript入門 & 環境構築](https://typescript-jp.gitbook.io/deep-dive/getting-started)
 - [ ] [JavaScript](https://typescript-jp.gitbook.io/deep-dive/recap)
 - [ ] [モダンなJavaScriptの機能](https://typescript-jp.gitbook.io/deep-dive/recap)
@@ -97,19 +89,17 @@ ES6の文法で書くことが多いので、特に
 
 に関しては書けるようにしておきましょう。
 
-
 ## React
 
 いよいよReactを勉強していきます！公式が一番わかりやすく、非常によくまとまっているのでやっていきましょう！
 
-https://react.dev/learn
+<https://react.dev/learn>
 
 ## react-v3
 
 ある程度Reactについて理解が深まってきたら実際に練習してみましょう！！
 
-https://github.com/pj100-team/react-v3
-
+<https://github.com/pj100-team/react-v3>
 
 ## Checkpoint
 
@@ -119,7 +109,7 @@ Q2. `TypeScript`における、ジェネリクスとはどういうものでし�
 
 Q3. `const array1 = [1, 4, 9, 16];`をmap関数を用いて、配列の値を3倍にしてください。
 
-参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+参考: <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map>
 
 Q4. 下記の関数をアロー関数を用いて書き直してください。
 
@@ -138,18 +128,20 @@ Q5. [こちらの参考サイト](https://typescriptbook.jp/tutorials)に従い�
 - [Prettierでコード整形を自動化しよう](https://typescriptbook.jp/tutorials/prettier)
 - [ESLintでTypeScriptのコーディング規約チェックを自動化しよう](https://typescriptbook.jp/tutorials/eslint)
 
-
 Q6. Reactを使ってTODOアプリを作ってみてください。
 
-参考: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_todo_list_beginning
+参考: <https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_todo_list_beginning>
 
 ※(注意事項)上記の参考サイトでは、チュートリアルの序盤で以下のように実行するよう指示があります。
-```
+
+```bash
 cd src
 rm -- App.test.js App.css logo.svg reportWebVitals.js setupTests.js
 ```
+
 しかし、実際にこれを実行するとアプリが機能しなくなる可能性があります。`reportWebVitals.js`と`App.css`は削除せず、まずは以下のように実行するのがオススメです。
-```
+
+```bash
 cd src
 rm -- App.test.js logo.svg setupTests.js
 ```
@@ -161,4 +153,3 @@ rm -- App.test.js logo.svg setupTests.js
 改善点の`Pull Request`が出されたら、本Chapterのフィードバックと次Chapterのプランを作成するための面談をセットするので改善点の`Pull Request`はどんな内容でもいいので必ず出してください！
 
 [Go to Next Chapter](/Chap4.md)
-

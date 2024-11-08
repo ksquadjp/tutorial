@@ -10,9 +10,10 @@
 
 都道府県別の総人口推移グラフを表示するSPA(Single Page Application)を構築してください．
 
-<img src="chap4_front_subject.png"></img>
+![イメージ図](./chap4_front_subject.png)
 
 ### 内容
+
 1. RESAS(地域経済分析システム) APIの「都道府県一覧」APIから取得する
 2. APIレスポンスから都道府県一覧のチェックボックスを動的に生成する
 3. 都道府県にチェックを入れると、RESAS APIから選択された都道府県の「人口構成」を取得する
@@ -55,9 +56,9 @@
 - API -> FastAPI (poetry管理)
 - DB -> お好みのDBを使用してください。sqlite3でも可能
 
-### 内容
+### 実装内容
 
-<img src='todolist.png'></img>
+![イメージ図](./todolist.png)
 
 作成してもらうのは上のような簡単なTODOアプリです(APIの部分のみでHTML&CSSは不要)
 
@@ -68,14 +69,14 @@
 3. ユーザーは上の検索ボタンからタスクの名前で検索を行うことができる。
 4. TODOリストのデータはDBに保存されている。
 
-<img src='todolist_search.png'></img>
+![image](./todolist_search.png)
 
 参考にしたのはMicroSoftのTODOリストです。機能を絞ってありますが、もしも動作を確認したい場合は、以下のリンクからアクセスできます。
 もしも要件でわからないところがあれば参考にしてください。
 
-https://to-do.live.com/tasks
+- [to-do.live.com](https://to-do.live.com/tasks)
 
-### 制約
+### 制約条件
 
 - FastAPIやDjango Rest FrameworkなどChap2で学習したフレームワークを使用して作成すること．
 - リンターやフォーマッターを適切に設定すること
