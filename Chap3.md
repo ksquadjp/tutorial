@@ -63,7 +63,7 @@ TypeScriptの基本的な文法を以下の資料を読んで理解しましょ�
 - [配列のスプレッド構文「...」(spread syntax)](https://typescriptbook.jp/reference/values-types-variables/array/spread-syntax-for-array)
 - [アロー関数 (arrow function)](https://typescriptbook.jp/reference/functions/arrow-functions)
 - [戻り値がない関数とvoid型 (void type)](https://typescriptbook.jp/reference/functions/void-type)
-- [Promise<T>](https://typescriptbook.jp/reference/asynchronous/promise)
+- [Promise\<T\>](https://typescriptbook.jp/reference/asynchronous/promise)
 - [async](https://typescriptbook.jp/reference/asynchronous/async)
 - [await](https://typescriptbook.jp/reference/asynchronous/await)
 
@@ -113,7 +113,7 @@ Q3. `const array1 = [1, 4, 9, 16];`をmap関数を用いて、配列の値を3�
 
 Q4. 下記の関数をアロー関数を用いて書き直してください。
 
-```
+```typescript
 [1, 2, 3].map(function (n) {
   return n + 1;
 });

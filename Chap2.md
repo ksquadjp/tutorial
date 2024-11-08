@@ -74,7 +74,7 @@ Q1. Checkpoint1で作成したプロジェクトに、`fizzbuzz.py`というフ�
 
 仕様
 
-1. 以下のコマンドで実行ができること
+①以下のコマンドで実行ができること
 
 ```bash
 uv run python fizzbuzz.py <入力したい数字>
@@ -82,35 +82,34 @@ uv run python fizzbuzz.py <入力したい数字>
 
 プログラムが実行されると答えが`print`されること
 
-2. `<入力したい数字>`の部分には1以上の長さの文字列が入る。(以下ではここで入力した文字列を`N`とする。)
-3. `N`の値によって`print`される答えを以下のように変える。
+②`<入力したい数字>`の部分には1以上の長さの文字列が入る。(以下ではここで入力した文字列を`N`とする。)
 
-    1. `N`が数字の場合
+③`N`の値によって`print`される答えを以下のように変える。
 
-        1. `N`が3で割れる時`Fizz`
-        2. `N`が5で割れる時`Buzz`
-        3. `N`が15で割れる時`FizzBuzz`
-        4. それ以外の場合`N`
-
-    2. `N`が数字ではない場合
-
-        1. `ValueError`例外をスロー
+1. `N`が数字の場合
+    1. `N`が3で割れる時`Fizz`
+    2. `N`が5で割れる時`Buzz`
+    3. `N`が15で割れる時`FizzBuzz`
+    4. それ以外の場合`N`
+2. `N`が数字ではない場合
+    1. `ValueError`例外をスロー
 
 以下は実行例
 
-```
+```bash
 poetry run python fizzbuzz.py 4
-4
+# => 4
 
 
 poetry run python fizzbuzz.py 15
-FizzBuzz
+# => FizzBuzz
 
 
 poetry run python fizzbuzz.py hoge
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ValueError("hoge is invalid input!")
+# =>
+# Traceback (most recent call last):
+#  File "<stdin>", line 1, in <module>
+# ValueError("hoge is invalid input!")
 ```
 
 Q2. pdbを使って、作成した処理で`N`の値を確認しましょう。
@@ -159,14 +158,14 @@ Q4. SQL100本ノックをやりましょう(1~30番ぐらいまではやって�
 Q1. 以下の単語はどのような意味か説明してください。
 
 1. RestAPI, エンドポイント, URI
-3. HTTPリクエスト、レスポンス
-4. Session
-5. Cookie
-6. HTTPステータスコード 例えば(404)
-7. HTTPリクエストメソッド
-8. CSRFトークン
-9. HTTPとHTTPSの違い
-10. リクエストボディとリクエストヘッダ
+2. HTTPリクエスト、レスポンス
+3. Session
+4. Cookie
+5. HTTPステータスコード 例えば(404)
+6. HTTPリクエストメソッド
+7. CSRFトークン
+8. HTTPとHTTPSの違い
+9. リクエストボディとリクエストヘッダ
 
 Q2. 以下のサイトを参考にTODOアプリのエンドポイントを作ってみてください。
 
