@@ -1,31 +1,36 @@
-# React実践
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## 始める前に
+## Getting Started
 
-1. `node`をインストール
-2. ローカルにこのリポジトリを`clone`する。
-3. `clone`後、main ブランチから自分の main ブランチ(`姓_名`)を作成する。
-4. `npm install`
-5. `npm run start`でアプリケーションが起動すれば OK！
+First, run the development server:
 
-## 進め方
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-基本的な流れは下記の通りです！
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. 作成したブランチ(`姓_名`)から課題ごとに作業ブランチを作成する。
-2. 課題完了後、実装内容が期待通り動いているか動画を撮影。
-3. 撮影した動画を添付した PR を作成し、レビュアーに確認してもらう。
-4. 指摘箇所を修正する。
-5. 次課題にて前課題で import したコンポーネントを`App.tsx`ファイル内から削除し、次課題を進める。
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### 例（`[practice1] component & props`を行う場合）
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-1. 前準備で作成した main ブランチ(`姓_名`)から作業ブランチ(`practice1`)を作成する。
-2. `templates`フォルダ配下に課題のファイルを作成（今回であれば`practice1.tsx`ファイル作成）。
-3. 課題完了後、PR を作成。
-4. 指摘箇所修正。
-5. マージ後、practice2 の課題にて`App.tsx`ファイル内から practice1 コンポーネントを削除し、practice2 の課題を進める。
+## Learn More
 
-## アプリケーションの起動方法について
+To learn more about Next.js, take a look at the following resources:
 
-ターミナルで`npm run start`を実行する。[http://localhost:3000](http://localhost:3000)にアクセスし、起動を確認する。
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
