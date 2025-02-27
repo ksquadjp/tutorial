@@ -98,10 +98,27 @@ uv run python fizzbuzz.py <入力したい数字>
 
 ```bash
 poetry run python fizzbuzz.py 4
+# => 1
+# => 2
+# => Fizz
 # => 4
 
 
 poetry run python fizzbuzz.py 15
+# => 1
+# => 2
+# => Fizz
+# => 4
+# => Buzz
+# => Fizz
+# => 7
+# => 8
+# => Fizz
+# => Buzz
+# => 11
+# => Fizz
+# => 13
+# => 14
 # => FizzBuzz
 
 
