@@ -24,8 +24,8 @@ mise --version
 # => 2024.11.4 macos-arm64 (2024-11-06)
 ```
 
-voltaを使用して、nodeをインストールしておきましょう。
-今回は16系のnodeを使用します。
+miseを使用して、nodeをインストールしておきましょう。
+今回は22系のnodeを使用します。
 
 ```bash
 mise install node@22
