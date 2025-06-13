@@ -29,6 +29,72 @@ uv --version
 
 が実行できればOKです！
 
+### Javaの環境構築
+
+Javaの開発環境を構築するために、以下の手順で進めていきましょう。
+
+#### 1. JDKのインストール
+
+macOSの場合、Homebrewを使用してインストールできます：
+
+```bash
+brew install openjdk@17
+```
+
+インストール後、以下のコマンドでバージョンを確認できます：
+
+```bash
+java --version
+```
+
+#### 2. Mavenのインストール
+
+MavenはJavaのプロジェクト管理ツールで、依存関係の管理やビルドを自動化します。
+
+```bash
+brew install maven
+```
+
+インストール後、以下のコマンドでバージョンを確認できます：
+
+```bash
+mvn --version
+```
+
+#### 3. プロジェクトの作成
+
+Mavenを使用して新しいプロジェクトを作成する場合：
+
+```bash
+mvn archetype:generate -DgroupId=com.example -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
+これにより、以下のような構造のプロジェクトが作成されます：
+
+```
+my-app/
+├── pom.xml
+└── src/
+    ├── main/
+    │   └── java/
+    │       └── com/
+    │           └── example/
+    │               └── App.java
+    └── test/
+        └── java/
+            └── com/
+                └── example/
+                    └── AppTest.java
+```
+
+#### 4. プロジェクトのビルドと実行
+
+```bash
+cd my-app
+mvn package
+java -cp target/my-app-1.0-SNAPSHOT.jar com.example.App
+```
+
 ## Checkpoint1
 
 Q1. `uv`を使用して、python3.12を使用したプロジェクトを作ってみましょう！
@@ -127,6 +193,68 @@ poetry run python fizzbuzz.py hoge
 # Traceback (most recent call last):
 #  File "<stdin>", line 1, in <module>
 # ValueError("hoge is invalid input!")
+```
+
+Javaでの実装例：
+
+```java
+// FizzBuzz.java
+public class FizzBuzz {
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Please provide a number as an argument");
+            return;
+        }
+
+        try {
+            int n = Integer.parseInt(args[0]);
+            for (int i = 1; i <= n; i++) {
+                if (i % 15 == 0) {
+                    System.out.println("FizzBuzz");
+                } else if (i % 3 == 0) {
+                    System.out.println("Fizz");
+                } else if (i % 5 == 0) {
+                    System.out.println("Buzz");
+                } else {
+                    System.out.println(i);
+                }
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(args[0] + " is invalid input!");
+        }
+    }
+}
+```
+
+実行方法：
+
+```bash
+javac FizzBuzz.java
+java FizzBuzz 4
+# => 1
+# => 2
+# => Fizz
+# => 4
+
+java FizzBuzz 15
+# => 1
+# => 2
+# => Fizz
+# => 4
+# => Buzz
+# => Fizz
+# => 7
+# => 8
+# => Fizz
+# => Buzz
+# => 11
+# => Fizz
+# => 13
+# => 14
+# => FizzBuzz
+
+java FizzBuzz hoge
+# => Exception in thread "main" java.lang.IllegalArgumentException: hoge is invalid input!
 ```
 
 Q2. pdbを使って、作成した処理で`N`の値を確認しましょう。

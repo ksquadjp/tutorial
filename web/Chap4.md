@@ -87,6 +87,170 @@
 - テスト実行時にエラーが発生しないこと
 - ソースコードはGitで管理し、作成したソースコードはGitHubにアップロードすること
 
+環境は、Checkpoint1で作成した環境を使用してください。ライブラリ管理は`pip`ではなく、`poetry`を使用してください！
+
+<https://dev.to/nditah/develop-a-simple-python-fastapi-todo-app-in-1-minute-8dg>
+
+### Javaでの実装例（Spring Boot）
+
+Spring Bootを使用してTODOアプリケーションを実装する例を示します。
+
+#### 1. プロジェクトの作成
+
+Spring Initializrを使用してプロジェクトを作成します：
+
+```bash
+curl https://start.spring.io/starter.tgz \
+  -d type=maven-project \
+  -d language=java \
+  -d bootVersion=3.2.3 \
+  -d baseDir=todo-app \
+  -d groupId=com.example \
+  -d artifactId=todo-app \
+  -d name=todo-app \
+  -d description="Todo Application" \
+  -d packageName=com.example.todo \
+  -d packaging=jar \
+  -d javaVersion=17 \
+  -d dependencies=web,data-jpa,h2 \
+  | tar -xzvf -
+```
+
+#### 2. エンティティの作成
+
+```java
+// src/main/java/com/example/todo/model/Todo.java
+package com.example.todo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
+
+@Entity
+public class Todo {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String title;
+    private String description;
+    private LocalDateTime dueDate;
+    private boolean completed;
+
+    // コンストラクタ、ゲッター、セッター
+}
+```
+
+#### 3. リポジトリの作成
+
+```java
+// src/main/java/com/example/todo/repository/TodoRepository.java
+package com.example.todo.repository;
+
+import com.example.todo.model.Todo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TodoRepository extends JpaRepository<Todo, Long> {
+    List<Todo> findByTitleContaining(String title);
+}
+```
+
+#### 4. コントローラーの作成
+
+```java
+// src/main/java/com/example/todo/controller/TodoController.java
+package com.example.todo.controller;
+
+import com.example.todo.model.Todo;
+import com.example.todo.repository.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/todos")
+public class TodoController {
+    @Autowired
+    private TodoRepository todoRepository;
+
+    @GetMapping
+    public List<Todo> getAllTodos() {
+        return todoRepository.findAll();
+    }
+
+    @GetMapping("/search")
+    public List<Todo> searchTodos(@RequestParam String title) {
+        return todoRepository.findByTitleContaining(title);
+    }
+
+    @PostMapping
+    public Todo createTodo(@RequestBody Todo todo) {
+        return todoRepository.save(todo);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @RequestBody Todo todo) {
+        return todoRepository.findById(id)
+            .map(existingTodo -> {
+                existingTodo.setTitle(todo.getTitle());
+                existingTodo.setDescription(todo.getDescription());
+                existingTodo.setDueDate(todo.getDueDate());
+                existingTodo.setCompleted(todo.isCompleted());
+                return ResponseEntity.ok(todoRepository.save(existingTodo));
+            })
+            .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteTodo(@PathVariable Long id) {
+        return todoRepository.findById(id)
+            .map(todo -> {
+                todoRepository.delete(todo);
+                return ResponseEntity.ok().build();
+            })
+            .orElse(ResponseEntity.notFound().build());
+    }
+}
+```
+
+#### 5. アプリケーションの実行
+
+```bash
+cd todo-app
+./mvnw spring-boot:run
+```
+
+#### 6. APIの使用例
+
+```bash
+# TODOの作成
+curl -X POST http://localhost:8080/api/todos \
+  -H "Content-Type: application/json" \
+  -d '{"title":"買い物","description":"牛乳を買う","dueDate":"2024-03-20T15:00:00"}'
+
+# TODOの一覧取得
+curl http://localhost:8080/api/todos
+
+# TODOの検索
+curl http://localhost:8080/api/todos/search?title=買い物
+
+# TODOの更新
+curl -X PUT http://localhost:8080/api/todos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title":"買い物","description":"牛乳とパンを買う","dueDate":"2024-03-20T15:00:00","completed":true}'
+
+# TODOの削除
+curl -X DELETE http://localhost:8080/api/todos/1
+```
+
+### 制約条件（Java版）
+
+- Spring Bootを使用して作成すること
+- リンターにはCheckstyle、フォーマッターにはGoogle Java Styleを使用すること
+- テストにはJUnit 5を使用すること
+- テスト実行時にエラーが発生しないこと
+- ソースコードはGitで管理し、作成したソースコードはGitHubにアップロードすること
+
 ## 次のChapterを始める前に
 
 本リポジトリを`clone`して,改善点を見つけて`Pull Request`(以下、PRと省略)を出しましょう！
